@@ -3,21 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sign Up</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<style>
-    body{
-        padding: 10vw;
-    }
-</style>
-<body>
-    <form action="/create" method = "post">
-        <input type="text" placeholder="name" name="name"><br>
-        <input type="email" placeholder="email" name="email" id=""><br>
-        <input type="password" placeholder="password" name="password"><br>
-        <input type="date"  placeholder="dob" name="dob"><br>
-        <br>
-        <input type="submit">
+<body class="bg-gray-100 flex flex-col items-center justify-center h-screen">
+    <h2 class="text-2xl font-bold mb-4">Sign Up</h2>
+    <form action="/create" method="post" class="bg-white p-6 rounded shadow-md">
+        <div class="mb-4">
+            <input type="text" name="name" placeholder="Name" class="border p-2 w-full">
+        </div>
+        <div class="mb-4">
+            <input type="email" name="email" placeholder="Email" class="border p-2 w-full">
+        </div>
+        <div class="mb-4">
+            <input type="password" name="password" placeholder="Password" class="border p-2 w-full">
+        </div>
+        <div class="mb-4">
+            <input type="date" name="dob" class="border p-2 w-full">
+        </div>
+        <div class="mb-4">
+            <input type="submit" value="Submit" class="bg-blue-500 text-white p-2 rounded">
+        </div>
     </form>
+    <a href="/" class="text-blue-500 hover:underline mt-4">Back to Home</a>
 </body>
 </html>

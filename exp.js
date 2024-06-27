@@ -1,25 +1,26 @@
-// const { name } = require('ejs');
-var express = require('express');
-var app = express();
-var data = require("./data")
+const express = require('express');
+const path = require('path');
 
-app.set("view engine","ejs")
+const app = express();
 
-app.use(express.json())
-app.use(express.urlencoded({extended: true}))
+app.set('view engine', 'ejs');
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
 
+app.get('/', (req, res) => {
+    res.render('index');
+});
 
+app.get('/signup', (req, res) => {
+    res.render('signup');
+});
 
-app.get("/",(req,res)=> {
-    res.render("index")
-})
-app.get("/signup",(req,res)=> {
-    res.render("signup")
-})
-app.post("/create",(req,res)=> {
-    res.send(req.body)
-})
+app.post('/create', (req, res) => {
+    // Handle form submission logic here
+    res.render('result');
+});
 
-app.listen(3100,() => {
-    console.log("listening on port 3100")
-})
+app.listen(3100, () => {
+    console.log('Listening on port 3100');
+});
